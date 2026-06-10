@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダウン症サポートセンターin神戸 | NPO法人</title>
+<meta name="description" content="ダウン症のある方の生涯にわたるサポートを行うNPO法人です。18歳からの繋がりを大切にし、神戸・阪神エリアで活動しています。">
+<meta property="og:title" content="ダウン症サポートセンターin神戸">
+<meta property="og:description" content="ダウン症のある方の生涯にわたるサポート。18歳からの繋がりを大切に。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ds-support-kobe.org">
+<link rel="canonical" href="https://ds-support-kobe.org">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --sky:    #3B82C4;
+    --sky-lt: #EBF4FF;
+    --sun:    #F5C430;
+    --sun-lt: #FFFBE8;
+    --green:  #4AAE8B;
+    --ink:    #1A2332;
+    --ink-2:  #4A5568;
+    --ink-3:  #8A95A3;
+    --white:  #FFFFFF;
+    --warm:   #F7F9FC;
+    --line:   #E2E8F0;
+    --serif:  'Noto Serif JP', serif;
+    --sans:   'Noto Sans JP', sans-serif;
+    --radius: 12px;
+    --shadow: 0 2px 12px rgba(26,35,50,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: 0.05em; line-height: 1.4; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--ink); }
+  h3 { font-size: 1.1rem; }
+  p  { color: var(--ink-2); line-height: 1.85; }
+  a  { color: var(--sky); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  .section    { padding: 72px 0; }
+  .section--alt { background: var(--warm); }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sky);
+    font-family: var(--sans);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .section-title { margin-bottom: 32px; }
+  .divider {
+    width: 40px; height: 3px;
+    background: var(--sun);
+    border-radius: 2px;
+    margin: 14px 0 32px;
+  }
+
+  /* ===== HEADER / NAV ===== */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; max-width: 900px; margin: 0 auto;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px; text-decoration: none;
+  }
+  .nav-logo-circle {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sky) 0%, var(--green) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 0.75rem; font-family: var(--serif);
+    font-weight: 700; letter-spacing: -0.03em; flex-shrink: 0;
+  }
+  .nav-logo-text { font-size: 0.82rem; color: var(--ink); line-height: 1.3; font-weight: 500; }
+  .nav-logo-text span { display: block; font-size: 0.68rem; color: var(--ink-3); font-weight: 300; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 0.82rem; color: var(--ink-2); font-weight: 500; }
+  .nav-links a:hover { color: var(--sky); text-decoration: none; }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, #EBF4FF 0%, #FFFBE8 60%, #F0FAF5 100%);
+    padding: 80px 20px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: rgba(245,196,48,0.12);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(59,130,196,0.08);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--sky);
+    color: white;
+    font-size: 0.72rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 20px;
+    letter-spacing: 0.06em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--ink-2);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.9;
+  }
+  .hero-btns {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block; padding: 13px 28px; border-radius: 8px;
+    font-size: 0.9rem; font-weight: 500; cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(59,130,196,0.25); text-decoration: none; }
+  .btn-primary { background: var(--sky); color: white; }
+  .btn-outline  { background: transparent; color: var(--sky); border: 1.5px solid var(--sky); }
+
+  /* ===== STATS BAR ===== */
+  .stats {
+    background: var(--ink);
+    padding: 28px 20px;
+  }
+  .stats-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: var(--serif); font-size: 1.8rem;
+    color: var(--sun); font-weight: 500; display: block;
+  }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+  /* ===== ABOUT ===== */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;
+  }
+  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-text p + p { margin-top: 16px; }
+
+  .about-values { display: flex; flex-direction: column; gap: 16px; }
+  .value-card {
+    background: white; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 20px 22px;
+    box-shadow: var(--shadow);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .value-icon {
+    width: 38px; height: 38px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .value-icon--blue  { background: var(--sky-lt); }
+  .value-icon--sun   { background: var(--sun-lt); }
+  .value-icon--green { background: #EBF7F3; }
+  .value-title { font-size: 0.9rem; font-weight: 500; margin-bottom: 4px; color: var(--ink); }
+  .value-desc  { font-size: 0.82rem; color: var(--ink-2); line-height: 1.65; }
+
+  /* ===== ACTIVITIES ===== */
+  .activities-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 20px;
+  }
+  .activity-card {
+    background: white; border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 28px 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s;
+  }
+  .activity-card:hover { transform: translateY(-2px); }
+  .activity-icon { font-size: 2rem; margin-bottom: 14px; }
+  .activity-card h3 { margin-bottom: 8px; font-size: 1rem; color: var(--ink); }
+  .activity-card p  { font-size: 0.84rem; }
+
+  /* ===== CAFE ===== */
+  .cafe-box {
+    background: linear-gradient(135deg, var(--sky) 0%, #2563A8 100%);
+    border-radius: 16px; padding: 40px; color: white;
+    display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
+  }
+  .cafe-icon { font-size: 3rem; flex-shrink: 0; }
+  .cafe-text h3 { font-size: 1.2rem; color: white; margin-bottom: 8px; }
+  .cafe-text p  { color: rgba(255,255,255,0.85); font-size: 0.9rem; }
+  .cafe-detail { 
+    margin-top: 14px; background: rgba(255,255,255,0.12); 
+    border-radius: 8px; padding: 12px 16px;
+    font-size: 0.82rem; color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+  }
+
+  /* ===== JOIN ===== */
+  .join-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 600px) { .join-cards { grid-template-columns: 1fr; } }
+  .join-card {
+    border-radius: var(--radius); padding: 30px 26px;
+    border: 1.5px solid var(--line);
+  }
+  .join-card--blue { border-color: var(--sky); background: var(--sky-lt); }
+  .join-card--sun  { border-color: var(--sun); background: var(--sun-lt); }
+  .join-card h3 { margin-bottom: 10px; }
+  .join-card p  { font-size: 0.86rem; margin-bottom: 18px; }
+  .fee-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    font-size: 0.84rem;
+  }
+  .fee-label { color: var(--ink-2); }
+  .fee-amount { font-weight: 500; color: var(--ink); }
+
+  /* ===== DOCUMENTS ===== */
+  .doc-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 16px;
+  }
+  .doc-card {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 20px; display: flex; align-items: center; gap: 14px;
+    background: white;
+  }
+  .doc-card--pending { opacity: 0.6; }
+  .doc-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .doc-name  { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+  .doc-status { font-size: 0.75rem; color: var(--ink-3); margin-top: 2px; }
+  .badge {
+    display: inline-block; font-size: 0.68rem; padding: 2px 8px;
+    border-radius: 4px; font-weight: 500; margin-top: 4px;
+  }
+  .badge--pending { background: #FEF3C7; color: #92400E; }
+  .badge--ready   { background: #D1FAE5; color: #065F46; }
+
+  /* ===== CONTACT ===== */
+  .contact-box {
+    background: var(--warm); border: 1px solid var(--line);
+    border-radius: 16px; padding: 40px;
+  }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+  }
+  @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+  .contact-item-icon { font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
+  .contact-item-label { font-size: 0.75rem; color: var(--ink-3); }
+  .contact-item-val   { font-size: 0.92rem; color: var(--ink); font-weight: 500; }
+
+  /* AI CHAT */
+  .chat-area {
+    background: white; border: 1.5px solid var(--sky); border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .chat-header {
+    background: var(--sky); padding: 12px 16px; color: white;
+    font-size: 0.85rem; display: flex; align-items: center; gap: 8px;
+  }
+  .chat-dot { width: 8px; height: 8px; background: var(--sun); border-radius: 50%; }
+  .chat-messages {
+    padding: 16px; min-height: 120px;
+    font-size: 0.85rem;
+  }
+  .chat-bubble {
+    background: var(--sky-lt); border-radius: 8px; padding: 10px 14px;
+    color: var(--ink-2); max-width: 85%; line-height: 1.6; margin-bottom: 8px;
+  }
+  .chat-input-row {
+    border-top: 1px solid var(--line); padding: 10px;
+    display: flex; gap: 8px;
+  }
+  .chat-input {
+    flex: 1; border: 1px solid var(--line); border-radius: 6px;
+    padding: 8px 12px; font-size: 0.84rem; font-family: var(--sans);
+    outline: none;
+  }
+  .chat-input:focus { border-color: var(--sky); }
+  .chat-send {
+    background: var(--sky); color: white; border: none;
+    border-radius: 6px; padding: 8px 16px; cursor: pointer;
+    font-size: 0.82rem; font-family: var(--sans); font-weight: 500;
+  }
+  .chat-note { font-size: 0.75rem; color: var(--ink-3); padding: 0 16px 12px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.5);
+    padding: 40px 20px 28px;
+  }
+  .footer-inner {
+    max-width: 900px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 24px; margin-bottom: 28px;
+  }
+  .footer-logo { color: white; font-family: var(--serif); font-size: 0.92rem; }
+  .footer-logo span { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 4px; font-family: var(--sans); }
+  .footer-links { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.5); font-size: 0.78rem; }
+  .footer-links a:hover { color: white; }
+  .footer-copy { font-size: 0.72rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <div class="nav-logo-circle">DS</div>
+      <div class="nav-logo-text">
+        ダウン症サポートセンターin神戸
+        <span>NPO法人</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">私たちについて</a></li>
+      <li><a href="#activities">活動内容</a></li>
+      <li><a href="#join">入会・支援</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">NPO法人 設立 2025年3月</div>
+  <h1>ダウン症のある方の<br><em>生涯にわたるサポート</em>を。</h1>
+  <p class="hero-sub">
+    18歳からの繋がりを大切に、<br>
+    健康に、地域で安心して暮らせるよう<br>
+    神戸・阪神エリアで活動しています。
+  </p>
+  <div class="hero-btns">
+    <a href="#about" class="btn btn-primary">活動を知る</a>
+    <a href="#join" class="btn btn-outline">入会・支援する</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num">18歳〜</span>
+      <div class="stat-label">サポート対象年齢</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2025</span>
+      <div class="stat-label">NPO法人設立</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">神戸・芦屋</span>
+      <div class="stat-label">活動エリア</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">私たちについて</h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>私たちが大切にしていることはただ一つ、<strong>ダウン症のある方の生涯にわたるサポート</strong>です。</p>
+        <p>18歳からの繋がりを大切にし、健康に、地域で安心して暮らせるようにサポートします。療育・教育・発達支援から、職業訓練・就労支援・居住支援・社会参加の促進まで、ライフステージに応じた包括的な支援を行っています。</p>
+        <p>ダウン症のある方が自己実現できる環境を整え、生活の質の向上と地域共生社会の実現に寄与することを目的としています。</p>
+      </div>
+      <div class="about-values">
+        <div class="value-card">
+          <div class="value-icon value-icon--blue">🤝</div>
+          <div>
+            <div class="value-title">18歳からの繋がり</div>
+            <div class="value-desc">成人期以降のダウン症のある方を中心に、地域とのつながりを大切にした支援を続けます。</div>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon value-icon--sun">🌱</div>
+          <div>
+            <div class="value-title">包括的なライフサポート</div>
+            <div class="value-desc">就労・居住・医療・文化活動まで、人生のあらゆる場面に寄り添います。</div>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon value-icon--green">🏘️</div>
+          <div>
+            <div class="value-title">地域共生社会の実現</div>
+            <div class="value-desc">ダウン症のある方が地域の一員として安心して暮らせる社会をつくります。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section section--alt" id="activities">
+  <div class="container">
+    <span class="section-label">Activities</span>
+    <h2 class="section-title">活動内容</h2>
+    <div class="divider"></div>
+    <div class="activities-grid" style="margin-bottom:40px;">
+      <div class="activity-card">
+        <div class="activity-icon">💼</div>
+        <h3>就労支援</h3>
+        <p>職業訓練・就労継続支援を通じて、働く喜びと社会参加を応援します。</p>
+      </div>
+      <div class="activity-card">
+        <div class="activity-icon">🎓</div>
+        <h3>生涯学習・発達支援</h3>
+        <p>成人期以降の学びの場を提供し、自己実現を支える環境を整えます。</p>
+      </div>
+      <div class="activity-card">
+        <div class="activity-icon">🏥</div>
+        <h3>医療・地域連携</h3>
+        <p>地域医療機関や関係団体と連携し、健康を守るサポートを行います。</p>
+      </div>
+      <div class="activity-card">
+        <div class="activity-icon">🎨</div>
+        <h3>文化・芸術活動</h3>
+        <p>ダウン症のある方の文化的な表現活動を支援し、地域との交流を深めます。</p>
+      </div>
+    </div>
+
+    <!-- CAFE -->
+    <div class="cafe-box">
+      <div class="cafe-icon">☕</div>
+      <div class="cafe-text">
+        <h3>芦屋カフェ運営</h3>
+        <p>就労継続支援B型作業所「ヤドリギワークス」と連携し、芦屋市役所でカフェを運営しています。日中活動の充実化と、地域の皆さまとの交流の場として活動しています。</p>
+        <div class="cafe-detail">
+          📍 芦屋市役所 本庁舎北館1階<br>
+          『ASHIYA Cafe supported by NESCAFE』<br>
+          運営：ヤドリギワークス（就労継続支援B型）
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section" id="join">
+  <div class="container">
+    <span class="section-label">Membership</span>
+    <h2 class="section-title">入会・ご支援</h2>
+    <div class="divider"></div>
+    <p style="margin-bottom:32px;">ダウン症サポートセンターの活動は、会員のみなさまのご支援によって成り立っています。ご入会をお待ちしております。</p>
+    <div class="join-cards">
+      <div class="join-card join-card--blue">
+        <h3>正会員</h3>
+        <p>法人の目的に賛同し、活動の中心として参加する会員です。</p>
+        <div class="fee-row"><span class="fee-label">入会金</span><span class="fee-amount">1,000円</span></div>
+        <div class="fee-row"><span class="fee-label">年会費（個人）</span><span class="fee-amount">2,000円/年</span></div>
+        <div class="fee-row"><span class="fee-label">年会費（団体）</span><span class="fee-amount">3,000円/年</span></div>
+      </div>
+      <div class="join-card join-card--sun">
+        <h3>賛助会員</h3>
+        <p>活動を応援・支援してくださる会員です。法人や個人を問わずご参加いただけます。</p>
+        <div class="fee-row"><span class="fee-label">入会金</span><span class="fee-amount">0円</span></div>
+        <div class="fee-row"><span class="fee-label">年会費（個人・団体）</span><span class="fee-amount">1,000円/年</span></div>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.84rem; color:var(--ink-3);">入会をご希望の方は、下記のお問い合わせフォームまたはメールにてご連絡ください。</p>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="section section--alt" id="documents">
+  <div class="container">
+    <span class="section-label">Documents</span>
+    <h2 class="section-title">法人情報・資料</h2>
+    <div class="divider"></div>
+    <div class="doc-grid">
+      <div class="doc-card doc-card--pending">
+        <div class="doc-icon">📄</div>
+        <div>
+          <div class="doc-name">定款</div>
+          <div class="doc-status">特定非営利活動法人ダウン症サポートセンター</div>
+          <span class="badge badge--pending">総会後に公開予定</span>
+        </div>
+      </div>
+      <div class="doc-card doc-card--pending">
+        <div class="doc-icon">📊</div>
+        <div>
+          <div class="doc-name">事業報告書</div>
+          <div class="doc-status">2025年度</div>
+          <span class="badge badge--pending">準備中</span>
+        </div>
+      </div>
+      <div class="doc-card doc-card--pending">
+        <div class="doc-icon">💰</div>
+        <div>
+          <div class="doc-name">財務諸表</div>
+          <div class="doc-status">活動計算書・貸借対照表</div>
+          <span class="badge badge--pending">準備中</span>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:20px; font-size:0.82rem; color:var(--ink-3);">NPO法人として、法人情報の透明性を確保するために資料を順次公開してまいります。</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container">
+    <span class="section-label">Contact</span>
+    <h2 class="section-title">お問い合わせ</h2>
+    <div class="divider"></div>
+    <div class="contact-box">
+      <div class="contact-grid">
+        <div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <div class="contact-item-label">メール</div>
+              <div class="contact-item-val">info@ds-support-kobe.org</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">事務所</div>
+              <div class="contact-item-val">兵庫県芦屋市岩園町4番2号</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⏰</div>
+            <div>
+              <div class="contact-item-label">対応時間</div>
+              <div class="contact-item-val">平日 10:00〜17:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI CHAT -->
+        <div>
+          <p style="font-size:0.84rem; margin-bottom:12px; color:var(--ink-2);">AIチャットで24時間ご相談いただけます（準備中）</p>
+          <div class="chat-area">
+            <div class="chat-header">
+              <div class="chat-dot"></div>
+              サポートAI（準備中）
+            </div>
+            <div class="chat-messages">
+              <div class="chat-bubble">
+                こんにちは。ダウン症サポートセンターin神戸のAIサポートです。<br>
+                入会・支援・活動内容など、お気軽にご質問ください。<br>
+                <span style="font-size:0.78rem; color:var(--ink-3);">※現在準備中です</span>
+              </div>
+            </div>
+            <div class="chat-input-row">
+              <input class="chat-input" type="text" placeholder="メッセージを入力..." disabled>
+              <button class="chat-send" disabled>送信</button>
+            </div>
+            <div class="chat-note">※AIチャット機能は近日公開予定です</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      特定非営利活動法人<br>ダウン症サポートセンター
+      <span>NPO Down Syndrome Support Center in Kobe</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about">私たちについて</a></li>
+      <li><a href="#activities">活動内容</a></li>
+      <li><a href="#join">入会・支援</a></li>
+      <li><a href="#documents">法人情報</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </div>
+  <div class="container footer-copy">
+    © 2025 特定非営利活動法人ダウン症サポートセンター. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
