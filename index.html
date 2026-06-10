@@ -586,25 +586,113 @@
 
         <!-- AI CHAT -->
         <div>
-          <p style="font-size:0.84rem; margin-bottom:12px; color:var(--ink-2);">AIチャットで24時間ご相談いただけます（準備中）</p>
-          <div class="chat-area">
+          <p style="font-size:0.84rem; margin-bottom:12px; color:var(--ink-2);">AIチャットで24時間ご相談いただけます</p>
+          <div class="chat-area" id="chatArea">
             <div class="chat-header">
               <div class="chat-dot"></div>
-              サポートAI（準備中）
+              サポートAI
             </div>
-            <div class="chat-messages">
+            <div class="chat-messages" id="chatMessages">
               <div class="chat-bubble">
-                こんにちは。ダウン症サポートセンターin神戸のAIサポートです。<br>
-                入会・支援・活動内容など、お気軽にご質問ください。<br>
-                <span style="font-size:0.78rem; color:var(--ink-3);">※現在準備中です</span>
+                こんにちは。ダウン症サポートセンターin神戸のサポートAIです。<br>
+                入会・支援・活動内容など、お気軽にご質問ください。
               </div>
             </div>
             <div class="chat-input-row">
-              <input class="chat-input" type="text" placeholder="メッセージを入力..." disabled>
-              <button class="chat-send" disabled>送信</button>
+              <input class="chat-input" type="text" id="chatInput" placeholder="例：入会するにはどうすればいいですか？" maxlength="200">
+              <button class="chat-send" id="chatSend" onclick="sendMessage()">送信</button>
             </div>
-            <div class="chat-note">※AIチャット機能は近日公開予定です</div>
+            <div class="chat-note">AIが回答します。個人の医療・法律相談はお答えできません。</div>
           </div>
+          <script>
+          (function(){
+            const KNOWLEDGE = `あなたは「NPO法人ダウン症サポートセンターin神戸」のサポートAIです。以下の情報に基づいて、丁寧・簡潔・温かみのある日本語で回答してください。答えられない質問（医療診断・法律相談・個人情報など）は、メール(info@ds-support-kobe.org)への問い合わせを案内してください。
+
+【基本情報】
+- 正式名称：特定非営利活動法人ダウン症サポートセンター
+- 設立：2025年3月
+- 活動エリア：神戸・阪神エリア（事務所：兵庫県芦屋市岩園町4番2号）
+- 対象：18歳以上のダウン症のある方とその家族・支援者
+
+【理念】
+ダウン症のある方の生涯にわたるサポート。18歳からの繋がりを大切に、健康に、地域で安心して暮らせるようにサポートします。
+
+【活動内容】
+1. 就労支援：職業訓練・就労継続支援を通じて働く喜びと社会参加を応援
+2. 生涯学習・発達支援：成人期以降の学びの場を提供
+3. 医療・地域連携：地域医療機関と連携した健康サポート
+4. 文化・芸術活動：文化的な表現活動の支援と地域交流
+5. 芦屋カフェ：芦屋市役所 本庁舎北館1階「ASHIYA Cafe supported by NESCAFE」。ヤドリギワークス（就労継続支援B型）と連携運営。
+
+【入会・会費】
+- 正会員：個人 年会費1,000円、団体 年会費2,000円
+- 賛助会員：個人・団体 年会費1,000円
+- 入会申込：info@ds-support-kobe.org へメール
+
+【お問い合わせ】
+- メール：info@ds-support-kobe.org
+- 対応時間：平日 10:00〜17:00`;
+
+            const messages = [];
+
+            async function sendMessage() {
+              const input = document.getElementById('chatInput');
+              const btn = document.getElementById('chatSend');
+              const msgContainer = document.getElementById('chatMessages');
+              const userText = input.value.trim();
+              if (!userText) return;
+
+              const userBubble = document.createElement('div');
+              userBubble.className = 'chat-bubble chat-bubble--user';
+              userBubble.textContent = userText;
+              msgContainer.appendChild(userBubble);
+              input.value = '';
+              btn.disabled = true;
+              input.disabled = true;
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+
+              const loadingBubble = document.createElement('div');
+              loadingBubble.className = 'chat-bubble chat-bubble--loading';
+              loadingBubble.textContent = '考えています…';
+              msgContainer.appendChild(loadingBubble);
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+
+              messages.push({role:'user', content: userText});
+
+              try {
+                const res = await fetch('https://api.anthropic.com/v1/messages', {
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 400,
+                    system: KNOWLEDGE,
+                    messages: messages
+                  })
+                });
+                const data = await res.json();
+                const reply = data.content?.[0]?.text || 'すみません、うまく回答できませんでした。';
+                messages.push({role:'assistant', content: reply});
+                loadingBubble.className = 'chat-bubble';
+                loadingBubble.textContent = reply;
+              } catch(e) {
+                loadingBubble.className = 'chat-bubble';
+                loadingBubble.textContent = '通信エラーが発生しました。しばらく後でお試しください。';
+              }
+
+              btn.disabled = false;
+              input.disabled = false;
+              input.focus();
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+            }
+
+            document.getElementById('chatInput').addEventListener('keydown', function(e){
+              if(e.key === 'Enter') sendMessage();
+            });
+
+            window.sendMessage = sendMessage;
+          })();
+          </script>
         </div>
       </div>
     </div>
