@@ -283,12 +283,15 @@
   /* ===== CONTACT ===== */
   .contact-box {
     background: var(--warm); border: 1px solid var(--line);
-    border-radius: 16px; padding: 40px;
+    border-radius: 16px; padding: 28px 20px;
   }
   .contact-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
   }
-  @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-box  { padding: 24px 16px; }
+  }
   .contact-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
   .contact-item-icon { font-size: 1.2rem; margin-top: 2px; flex-shrink: 0; }
   .contact-item-label { font-size: 0.75rem; color: var(--ink-3); }
